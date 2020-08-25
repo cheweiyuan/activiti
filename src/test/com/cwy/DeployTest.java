@@ -2,10 +2,17 @@ package com.cwy;
 
 import org.activiti.engine.*;
 import org.activiti.engine.repository.DeploymentBuilder;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.activiti.engine.task.Task;
 import org.junit.Test;
 
 import java.util.List;
+
+/**
+ * 流程详细步骤
+ * 部署流程 -> 启动流程 -> 查询用户id -> 用户完成任务 -> 流程结束
+ */
 
 public class DeployTest {
 
@@ -48,11 +55,30 @@ public class DeployTest {
     }
 
     //查询流程明细定义明细
+    @Test
+    public void queryProcdef() {
+        RepositoryService repositoryService = processEngine.getRepositoryService();
+        ProcessDefinitionQuery query = repositoryService.createProcessDefinitionQuery();
+        query.processDefinitionKey("test_1");
+        List<ProcessDefinition> pds = query.list();
+        System.err.println(">>>>>>>>>>>>>>>>>>");
+        for (ProcessDefinition pd : pds) {
+            System.err.println("ID:" + pd.getId() + ",NAME:" + pd.getName() +
+                    ",KEY:" + pd.getKey() + ",VERSION:" + pd.getVersion() +
+                    ",RESOURCE_NAME:" + pd.getResourceName() +
+                    ",DGRM_RESOURCE_NAME:" + pd.getDiagramResourceName());
 
+        }
+    }
 
-
-
-
-
+    //审核过程完成任务节点审批
+    @Test
+    public void startProcessApproval(){
+        TaskService taskService = processEngine.getTaskService();
+        //taskId 就是查询任务中的ID
+        String taskId = "2505";
+        //完成请假申请任务
+        taskService.complete(taskId);
+    }
 
 }
