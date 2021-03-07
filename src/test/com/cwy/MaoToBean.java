@@ -24,6 +24,7 @@ public class MaoToBean {
 //        获取Javabean的属性描述器对象 返回的是一个描述器数组
         PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
         User user = User.class.newInstance();
+
 //        对描述器对象进行迭代
         for (PropertyDescriptor pd : pds) {
             //获取属性名称和属性的类型

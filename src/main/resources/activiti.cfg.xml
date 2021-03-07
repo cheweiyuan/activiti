@@ -28,7 +28,7 @@
             一般不会使用H2作为数据库。目前Activiti支持的数据库有：H2、MySQL、Oracle
             Postgres、MSSQL、DB2
         -->
-        <property name="databaseType" value="h2" />
+        <!--<property name="databaseType" value="h2" />-->
         <!--配置数据源-->
         <property name="dataSource" ref="dataSource"></property>
         <!--是否创建表结构-->
