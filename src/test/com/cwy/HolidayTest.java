@@ -22,8 +22,8 @@ public class HolidayTest {
     public void deployTest() {
         RepositoryService repositoryService = processEngine.getRepositoryService();
         Deployment builder = repositoryService.createDeployment()
-                .addClasspathResource("activiti/holiday.bpmn")
-                .name("请假申请流程")
+                .addClasspathResource("activiti/holiday2.bpmn")
+                .name("请假测试")
                 .deploy();
         System.out.println("流程部署id:" + builder.getId());
         System.out.println("流程部署名称:" + builder.getName());
@@ -37,7 +37,7 @@ public class HolidayTest {
 
         //根据流程定义key来启动流程
         ProcessInstance processInstance =
-                runtimeService.startProcessInstanceByKey("holiday");
+                runtimeService.startProcessInstanceByKey("holiday2_2");
         System.out.println("流程定义id:" + processInstance.getProcessDefinitionId());
         System.out.println("当前活动id:" + processInstance.getActivityId());
     }
@@ -46,11 +46,11 @@ public class HolidayTest {
     @Test
     public void findPersonalTaskList() {
         //任务负责人
-        String assingee = "zhangsan";
+        String assingee = "lisi";
         //创建taskService
         TaskService taskService = processEngine.getTaskService();
         List<Task> list = taskService.createTaskQuery()
-                .processDefinitionKey("holiday")
+                .processDefinitionKey("holiday2_2")
                 .taskAssignee(assingee)
                 .list();
         for (Task task : list) {
@@ -63,7 +63,7 @@ public class HolidayTest {
     //完成任务
     @Test
     public void completeTask() {
-        String taskId = "7505";
+        String taskId = "25002";
         //创建taskService
         TaskService taskService = processEngine.getTaskService();
         //完成任务
@@ -99,7 +99,7 @@ public class HolidayTest {
     @Test
     public void queryPorcee() {
         //流程定义key
-        String processDefinitionKey = "holiday";
+        String processDefinitionKey = "holiday2";
         //获取repositoryService
         RepositoryService repositoryService = processEngine.getRepositoryService();
         //查询流程定义
