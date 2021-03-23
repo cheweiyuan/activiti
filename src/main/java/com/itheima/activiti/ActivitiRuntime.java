@@ -16,7 +16,7 @@ public class ActivitiRuntime {
         RuntimeService runtimeService = processEngine.getRuntimeService();
         //根据流程定义key来启动流程
         ProcessInstance processInstance =
-                runtimeService.startProcessInstanceByKey("holiday2");
+                runtimeService.startProcessInstanceByKey("holiday4");
         System.out.println("流程定义id:" + processInstance.getProcessDefinitionId());
         System.out.println("当前活动id:" + processInstance.getActivityId());
     }

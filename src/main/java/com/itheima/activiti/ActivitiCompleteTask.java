@@ -20,8 +20,8 @@ public class ActivitiCompleteTask {
 //        3.处理任务，结合当前用户任务列表查询操作的话，
         //根据流程定义的key，负责人assignee来实现当前用户的任务列表查询
         Task taskList = taskService.createTaskQuery()
-                .processDefinitionKey("holiday2")
-                .taskAssignee("wangwu")
+                .processDefinitionKey("holiday4")
+                .taskAssignee("zhangsan")
                 .list().get(0);
             System.out.println("--------------" + taskList.getId());
             taskService.complete(taskList.getId());

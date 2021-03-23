@@ -29,8 +29,8 @@ public class ActivitiStartInstance {
         TaskService taskService = processEngine.getTaskService();
 //        3.根据流程定义的key，负责人assignee来实现当前用户的任务列表查询
         List<Task> taskList = taskService.createTaskQuery()
-                .processDefinitionKey("holiday3")
-                .taskAssignee("wangwu")
+                .processDefinitionKey("holiday4")
+                .taskAssignee("zhangsan")
                 .list();
         System.out.println("----------------" + taskList.size());
 //        4.任务列表的展示

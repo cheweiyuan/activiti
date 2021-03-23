@@ -25,7 +25,7 @@ public class AssigneeUEL {
         map.put("assignee2","wangwu");
 
         //启动流程实例，同时还要设置流程定义的assignee的值
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("holiday2", map);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("myProcess_1", map);
 
         //输出
         System.err.println(processEngine.getName());
