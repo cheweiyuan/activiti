@@ -13,7 +13,7 @@ public class TestSuspendProcessInstance {
 
     /**
      * 当前流程实例7501  已经处于挂起状态 如果此时要让该实例继续执行，问题是：是否可以成功？
-     * 如果不能执行  是否会抛出异常？
+     * 如果不能执行  是否会抛出异常？ActivitiException: Cannot complete a suspended task
      * @param args
      */
     public static void main(String[] args) {

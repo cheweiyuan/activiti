@@ -26,7 +26,7 @@ public class DeleteProcessDefinition {
         //2.创建RepositoryService对象
         RepositoryService repositoryService = processEngine.getRepositoryService();
         //3执行删除流程定义 参数代表流程部署的id
-        repositoryService.deleteDeployment("30001",true);
+        repositoryService.deleteDeployment("25001",true);
 
     }
 }
