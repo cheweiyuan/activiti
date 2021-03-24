@@ -123,7 +123,7 @@ public class HolidayTest {
     @Test
     public void deleteDeployment() {
         //流程部署id
-        String deploymentId = "92501";
+        String deploymentId = "40001";
         //通过流程引擎获取repositoryService
         RepositoryService repositoryService = processEngine.getRepositoryService();
         //删除流程定义，如果该流程定义已有流程实例启动则删除时出错
