@@ -1,14 +1,16 @@
 package com.itheima.activiti.assignee;
 
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngines;
-import org.activiti.engine.TaskService;
+import com.cwy.beans.Holiday;
+import org.activiti.engine.*;
+import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
+
+import java.util.HashMap;
 
 /**
  * 流程变量的测试
  */
-
 public class VariableTest {
 
     //新的请假流程定义的部署
